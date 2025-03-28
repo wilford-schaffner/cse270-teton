@@ -23,10 +23,9 @@ class TestSmokeTestSuite():
     self.driver.quit()
   
   def test_adminPageTest(self):
-    self.driver.get("http://127.0.0.1:5500/teton/1.6/index.html")
-    self.driver.set_window_size(1496, 853)
-    self.driver.find_element(By.LINK_TEXT, "Admin").click()
-    WebDriverWait(self.driver, 30).until(expected_conditions.presence_of_element_located((By.ID, "username")))
+    self.driver.get("http://127.0.0.1:5500/teton/1.6/admin.html")
+    self.driver.set_window_size(1600, 1200)
+    WebDriverWait(self.driver, 5).until(expected_conditions.presence_of_element_located((By.ID, "username")))
     self.driver.find_element(By.ID, "username").send_keys("incorrect")
     self.driver.find_element(By.ID, "password").send_keys("incorrect")
     self.driver.find_element(By.CSS_SELECTOR, ".mysubmit:nth-child(4)").click()
